@@ -1,0 +1,1344 @@
+/* =====================================================
+   CHAINFLEET - TREASURY / PERBENDAHARAAN
+===================================================== */
+
+.dashboard-main {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 32px;
+
+  box-sizing: border-box;
+
+  background: #0b1120;
+
+  color: #e5e7eb;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-title {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 28px;
+}
+
+.page-title h1 {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+.page-title p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   PRIMARY BUTTON
+===================================================== */
+
+.primary-button {
+  flex-shrink: 0;
+
+  padding: 10px 16px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   TRANSACTION DIALOG
+===================================================== */
+
+.dialog-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background: rgba(2, 6, 23, 0.72);
+
+  backdrop-filter: blur(4px);
+
+  -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* =====================================================
+   DIALOG BOX
+===================================================== */
+
+.dialog-box {
+  width: 100%;
+
+  max-width: 480px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background: #111827;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45);
+
+  animation: dialogOpen 0.2s ease-out;
+}
+
+
+/* =====================================================
+   DIALOG HEADER
+===================================================== */
+
+.dialog-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.dialog-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.close-button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 32px;
+
+  height: 32px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #94a3b8;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.close-button:hover {
+  background: #1f2937;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   DIALOG BODY
+===================================================== */
+
+.dialog-body {
+  padding: 22px;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  color: #cbd5e1;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+
+/* =====================================================
+   INPUT & SELECT
+===================================================== */
+
+.form-group input,
+.form-group select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 11px 12px;
+
+  border: 1px solid #374151;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #0f172a;
+
+  color: #e5e7eb;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #64748b;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =====================================================
+   DIALOG FOOTER
+===================================================== */
+
+.dialog-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 16px 22px;
+
+  border-top: 1px solid #1f2937;
+}
+
+
+/* =====================================================
+   SECONDARY BUTTON
+===================================================== */
+
+.secondary-button {
+  padding: 10px 16px;
+
+  border: 1px solid #374151;
+
+  border-radius: 8px;
+
+  background: #172033;
+
+  color: #cbd5e1;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.secondary-button:hover {
+  background: #1e293b;
+
+  border-color: #4b5563;
+}
+
+
+/* =====================================================
+   DIALOG ANIMATION
+===================================================== */
+
+@keyframes dialogOpen {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-10px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-bottom: 24px;
+}
+
+
+/* =====================================================
+   STAT CARD
+===================================================== */
+
+.stat-card {
+  min-width: 0;
+
+  padding: 22px;
+
+  box-sizing: border-box;
+
+  background: #111827;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 12px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #334155;
+}
+
+
+/* =====================================================
+   STAT TEXT
+===================================================== */
+
+.stat-label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+.stat-card h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 24px;
+
+  font-weight: 700;
+}
+
+.stat-info {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   STAT CHANGE
+===================================================== */
+
+.stat-change {
+  display: inline-block;
+
+  margin-top: 14px;
+
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.stat-change.positive {
+  background: rgba(34, 197, 94, 0.1);
+
+  color: #4ade80;
+}
+
+.stat-change.negative {
+  background: rgba(239, 68, 68, 0.1);
+
+  color: #f87171;
+}
+
+.stat-change.warning {
+  background: rgba(234, 179, 8, 0.1);
+
+  color: #fbbf24;
+}
+
+
+/* =====================================================
+   TREASURY GRID
+===================================================== */
+
+.treasury-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 20px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   GENERAL CARD
+===================================================== */
+
+.activity-card {
+  width: 100%;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  background: #111827;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 14px;
+}
+
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+
+.activity-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 20px 22px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.activity-header h2 {
+  margin: 0 0 6px;
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+.activity-header p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   WALLET
+===================================================== */
+
+.wallet-content {
+  padding: 22px;
+}
+
+.wallet-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #64748b;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.wallet-address {
+  width: fit-content;
+
+  max-width: 100%;
+
+  padding: 8px 10px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background: #0f172a;
+
+  border: 1px solid #263244;
+
+  border-radius: 7px;
+
+  color: #94a3b8;
+
+  font-family: monospace;
+
+  font-size: 12px;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   WALLET BALANCE
+===================================================== */
+
+.wallet-balance {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 24px;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.wallet-balance span {
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.wallet-balance strong {
+  color: #ffffff;
+
+  font-size: 24px;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   WALLET ACTIONS
+===================================================== */
+
+.wallet-actions {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.wallet-button {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 9px 10px;
+
+  border: 1px solid #374151;
+
+  border-radius: 7px;
+
+  background: #172033;
+
+  color: #cbd5e1;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.wallet-button:hover {
+  background: #1e293b;
+
+  border-color: #4b5563;
+}
+
+
+/* =====================================================
+   WALLET STATUS
+===================================================== */
+
+.wallet-status {
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: rgba(34, 197, 94, 0.1);
+
+  color: #4ade80;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   PERIOD SELECT
+===================================================== */
+
+.period-select {
+  padding: 7px 10px;
+
+  border: 1px solid #374151;
+
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #0f172a;
+
+  color: #cbd5e1;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   CASH FLOW
+===================================================== */
+
+.cashflow-content {
+  padding: 22px;
+}
+
+.cashflow-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.cashflow-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 36px;
+
+  height: 36px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+.cashflow-icon.income {
+  background: rgba(34, 197, 94, 0.1);
+
+  color: #4ade80;
+}
+
+.cashflow-icon.expense {
+  background: rgba(239, 68, 68, 0.1);
+
+  color: #f87171;
+}
+
+.cashflow-detail {
+  display: flex;
+
+  flex: 1;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.cashflow-detail span {
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.cashflow-detail strong {
+  color: #ffffff;
+
+  font-size: 14px;
+}
+
+.cashflow-total {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 18px;
+}
+
+.cashflow-total span {
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.cashflow-total strong {
+  color: #4ade80;
+
+  font-size: 18px;
+}
+
+
+/* =====================================================
+   TRANSACTION CARD
+===================================================== */
+
+.transaction-card {
+  margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   TRANSACTION LIST
+===================================================== */
+
+.transaction-list {
+  width: 100%;
+}
+
+
+/* =====================================================
+   TRANSACTION ITEM
+===================================================== */
+
+.transaction-item {
+  display: grid;
+
+  grid-template-columns:
+    42px
+    minmax(180px, 1fr)
+    auto
+    auto;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 17px 22px;
+
+  border-bottom: 1px solid #1f2937;
+
+  transition: background 0.15s ease;
+}
+
+.transaction-item:hover {
+  background: #172033;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+
+/* =====================================================
+   TRANSACTION ICON
+===================================================== */
+
+.transaction-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+
+  height: 40px;
+
+  border-radius: 9px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+.transaction-icon.income {
+  background: rgba(34, 197, 94, 0.1);
+
+  color: #4ade80;
+}
+
+.transaction-icon.expense {
+  background: rgba(239, 68, 68, 0.1);
+
+  color: #f87171;
+}
+
+.transaction-icon.blockchain {
+  background: rgba(139, 92, 246, 0.1);
+
+  color: #a78bfa;
+}
+
+
+/* =====================================================
+   TRANSACTION INFO
+===================================================== */
+
+.transaction-info {
+  min-width: 0;
+}
+
+.transaction-info h3 {
+  margin: 0 0 5px;
+
+  color: #f8fafc;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.transaction-info p {
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #64748b;
+
+  font-size: 11px;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   TRANSACTION AMOUNT
+===================================================== */
+
+.transaction-amount {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 4px;
+}
+
+.transaction-amount strong {
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.transaction-amount span {
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+.amount-positive {
+  color: #4ade80;
+}
+
+.amount-negative {
+  color: #f87171;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.status.success {
+  background: rgba(34, 197, 94, 0.1);
+
+  border: 1px solid rgba(34, 197, 94, 0.2);
+
+  color: #4ade80;
+}
+
+.status.pending {
+  background: rgba(37, 99, 235, 0.1);
+
+  border: 1px solid rgba(37, 99, 235, 0.2);
+
+  color: #60a5fa;
+}
+
+
+/* =====================================================
+   DISTRIBUTION
+===================================================== */
+
+.distribution-list {
+  padding: 22px;
+}
+
+.distribution-item {
+  margin-bottom: 20px;
+}
+
+.distribution-item:last-child {
+  margin-bottom: 0;
+}
+
+.distribution-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 8px;
+}
+
+.distribution-header span {
+  color: #cbd5e1;
+
+  font-size: 12px;
+}
+
+.distribution-header strong {
+  color: #ffffff;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   DISTRIBUTION BAR
+===================================================== */
+.distribution-bar {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: #1e293b;
+}
+
+.distribution-progress {
+  width: 0;
+  height: 100%;
+  border-radius: 999px;
+
+  animation: progressWidth 1.5s ease-out forwards;
+
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+@keyframes progressWidth {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: var(--progress);
+  }
+}
+
+
+
+
+/* =====================================================
+   COLORS
+===================================================== */
+
+.distribution-progress.blue {
+  background: #3b82f6;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
+}
+
+.distribution-progress.yellow {
+  background: #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+.distribution-progress.green {
+  background: #22c55e;
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.35);
+}
+
+.distribution-progress.purple {
+  background: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+}
+
+
+
+/* =====================================================
+   RESPONSIVE - TABLET BESAR
+===================================================== */
+
+@media (max-width: 1200px) {
+
+  .stats-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .treasury-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .dashboard-main {
+    padding: 20px;
+  }
+
+  .page-title {
+    flex-direction: column;
+  }
+
+  /* Hanya tombol di PAGE HEADER yang full width */
+  .page-title > .primary-button {
+    width: 100%;
+  }
+
+  .activity-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .wallet-actions {
+    flex-direction: column;
+  }
+
+  .wallet-button {
+    width: 100%;
+  }
+
+  .transaction-item {
+    grid-template-columns:
+      40px
+      minmax(0, 1fr)
+      auto;
+  }
+
+  .transaction-amount {
+    grid-column: 2;
+
+    align-items: flex-start;
+  }
+
+  .transaction-item .status {
+    grid-column: 3;
+
+    grid-row: 1 / span 2;
+  }
+
+
+  /* =================================================
+     DIALOG TABLET
+  ================================================= */
+
+  .dialog-box {
+    max-width: 480px;
+  }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 550px) {
+
+  .dashboard-main {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title h1 {
+    font-size: 24px;
+  }
+
+  .page-title p {
+    font-size: 13px;
+  }
+
+  .activity-header {
+    padding: 18px;
+  }
+
+  .wallet-content,
+  .cashflow-content,
+  .distribution-list {
+    padding: 18px;
+  }
+
+  .wallet-balance {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .transaction-item {
+    grid-template-columns:
+      38px
+      minmax(0, 1fr);
+  }
+
+  .transaction-amount {
+    grid-column: 2;
+
+    align-items: flex-start;
+  }
+
+  .transaction-item .status {
+    grid-column: 2;
+
+    grid-row: auto;
+
+    justify-self: flex-start;
+  }
+
+  .transaction-icon {
+    width: 36px;
+
+    height: 36px;
+  }
+
+
+  /* =================================================
+     DIALOG MOBILE
+  ================================================= */
+
+  .dialog-overlay {
+    padding: 14px;
+  }
+
+  .dialog-box {
+    max-width: 100%;
+
+    border-radius: 12px;
+  }
+
+  .dialog-header {
+    padding: 18px;
+  }
+
+  .dialog-body {
+    padding: 18px;
+  }
+
+  .dialog-footer {
+    flex-direction: column-reverse;
+
+    padding: 14px 18px;
+  }
+
+  .dialog-footer button {
+    width: 100%;
+  }
+
+}

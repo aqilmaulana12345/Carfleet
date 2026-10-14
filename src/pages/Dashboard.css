@@ -1,0 +1,935 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #111827;
+}
+
+/* ========================================
+   DASHBOARD
+======================================== */
+
+.dashboard {
+  min-height: 100vh;
+  background: #0b1120;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 250px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 18px;
+
+  background: #111827;
+  border-right: 1px solid #1f2937;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 4px 8px 30px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sidebar-logo h2 {
+  color: white;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sidebar-logo span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #6b7280;
+
+  font-size: 10px;
+}
+
+
+/* ========================================
+   SIDEBAR MENU
+======================================== */
+
+.sidebar-menu {
+  flex: 1;
+}
+
+.menu-title {
+  margin: 10px 10px 12px;
+
+  color: #6b7280;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.menu-title.second {
+  margin-top: 30px;
+}
+
+.menu-item {
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 5px;
+  padding: 0 13px;
+
+  border-radius: 8px;
+
+  color: #9ca3af;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition: all 0.2s ease;
+}
+
+.menu-item span {
+  width: 20px;
+
+  display: flex;
+  justify-content: center;
+
+  font-size: 16px;
+}
+
+.menu-item:hover {
+  background: #1f2937;
+
+  color: white;
+}
+
+.menu-item.active {
+  background: #2563eb;
+
+  color: white;
+
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+
+/* ========================================
+   SIDEBAR BOTTOM
+======================================== */
+
+.sidebar-bottom {
+  padding-top: 18px;
+
+  border-top: 1px solid #1f2937;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-weight: bold;
+}
+
+.sidebar-user strong {
+  display: block;
+
+  color: white;
+
+  font-size: 13px;
+}
+
+.sidebar-user span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #6b7280;
+
+  font-size: 11px;
+}
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+.logout-button {
+  width: 100%;
+  height: 40px;
+
+  border: 1px solid #374151;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #9ca3af;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #7f1d1d;
+
+  border-color: #991b1b;
+
+  color: white;
+}
+
+
+/* ========================================
+   MAIN CONTENT AREA
+======================================== */
+
+.dashboard-content {
+  width: calc(100% - 250px);
+
+  min-height: 100vh;
+
+  margin-left: 250px;
+}
+
+
+/* ========================================
+   MAINBAR / TOPBAR
+======================================== */
+
+.mainbar {
+  width: 100%;
+  height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 35px;
+
+  background: #111827;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.mainbar h2 {
+  color: white;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mainbar p {
+  margin-top: 4px;
+
+  color: #6b7280;
+
+  font-size: 12px;
+}
+
+
+/* ========================================
+   MAINBAR RIGHT
+======================================== */
+
+.mainbar-right {
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+}
+
+
+/* ========================================
+   BLOCKCHAIN STATUS
+======================================== */
+
+.network-status {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.online-dot {
+  width: 8px;
+  height: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+}
+
+.network-status span,
+.wallet span {
+  display: block;
+
+  color: #6b7280;
+
+  font-size: 10px;
+}
+
+.network-status strong,
+.wallet strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: white;
+
+  font-size: 12px;
+}
+
+
+/* ========================================
+   WALLET
+======================================== */
+
+.wallet {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding-left: 20px;
+
+  border-left: 1px solid #374151;
+}
+
+.wallet-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1d4ed8;
+
+  color: white !important;
+
+  font-size: 12px !important;
+}
+
+
+/* ========================================
+   DASHBOARD MAIN
+======================================== */
+
+.dashboard-main {
+  width: 100%;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 35px;
+
+  /* MAIN ANIMATION */
+  animation: mainContentFade 0.6s ease-out;
+}
+
+
+/* ========================================
+   PAGE TITLE
+======================================== */
+
+.page-title {
+  margin-bottom: 28px;
+
+  /* TITLE ANIMATION */
+  animation: fadeUp 0.5s ease-out 0.1s both;
+}
+
+.page-title h1 {
+  color: white;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.page-title p {
+  margin-top: 7px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+
+/* ========================================
+   STATISTICS GRID
+======================================== */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+
+/* ========================================
+   STAT CARD
+======================================== */
+
+.stat-card {
+  min-height: 145px;
+
+  padding: 23px;
+
+  background: #111827;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 12px;
+
+  /* CARD ANIMATION */
+  animation: cardFadeUp 0.5s ease-out both;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* CARD MUNCUL BERURUTAN */
+
+.stat-card:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+
+/* CARD HOVER */
+
+.stat-card:hover {
+  border-color: #374151;
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+
+.stat-label {
+  color: #6b7280;
+
+  font-size: 12px;
+}
+
+.stat-card h2 {
+  margin-top: 15px;
+
+  font-size: 27px;
+  font-weight: 700;
+}
+
+
+/* CARD COLORS */
+
+.stat-card:nth-child(1) h2 {
+  color: #60a5fa;
+}
+
+.stat-card:nth-child(2) h2 {
+  color: #4ade80;
+}
+
+.stat-card:nth-child(3) h2 {
+  color: #facc15;
+}
+
+.stat-info {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #6b7280;
+
+  font-size: 11px;
+}
+
+
+/* ========================================
+   ACTIVITY CARD
+======================================== */
+
+.activity-card {
+  overflow: hidden;
+
+  background: #111827;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 12px;
+
+  /* ACTIVITY ANIMATION */
+  animation: activityFade 0.6s ease-out 0.45s both;
+}
+
+
+/* ========================================
+   ACTIVITY HEADER
+======================================== */
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.activity-header h2 {
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.activity-header p {
+  margin-top: 5px;
+
+  color: #6b7280;
+
+  font-size: 11px;
+}
+
+.activity-header button {
+  padding: 8px 12px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #60a5fa;
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+  transition: 0.2s;
+}
+
+.activity-header button:hover {
+  background: #1e3a8a;
+
+  color: #93c5fd;
+}
+
+
+/* ========================================
+   ACTIVITY ITEM
+======================================== */
+
+.activity-item {
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 15px 22px;
+
+  border-bottom: 1px solid #1f2937;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item:hover {
+  background: rgba(31, 41, 55, 0.45);
+
+  padding-left: 27px;
+}
+
+
+/* ========================================
+   ACTIVITY ICON
+======================================== */
+
+.activity-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin-right: 13px;
+
+  border-radius: 8px;
+
+  background: #1f2937;
+
+  font-size: 16px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.activity-item:hover .activity-icon {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.activity-icon.blue {
+  color: #60a5fa;
+
+  background: rgba(37, 99, 235, 0.15);
+}
+
+.activity-icon.yellow {
+  color: #facc15;
+
+  background: rgba(234, 179, 8, 0.15);
+}
+
+.activity-icon.green {
+  color: #4ade80;
+
+  background: rgba(34, 197, 94, 0.15);
+}
+
+
+/* ========================================
+   ACTIVITY DETAIL
+======================================== */
+
+.activity-detail {
+  flex: 1;
+}
+
+.activity-detail h3 {
+  color: white;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.activity-detail p {
+  margin-top: 4px;
+
+  color: #6b7280;
+
+  font-size: 11px;
+}
+
+
+/* ========================================
+   STATUS
+======================================== */
+
+.status {
+  padding: 5px 9px;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.status.success {
+  background: #052e16;
+
+  color: #4ade80;
+}
+
+.status.pending {
+  background: #422006;
+
+  color: #facc15;
+}
+
+
+/* ========================================
+   MAIN ANIMATIONS
+======================================== */
+
+@keyframes mainContentFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes activityFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .dashboard-content {
+    width: calc(100% - 220px);
+
+    margin-left: 220px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 750px) {
+
+  .sidebar {
+    width: 70px;
+
+    padding: 20px 10px;
+  }
+
+  .sidebar-logo {
+    justify-content: center;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .sidebar-logo > div:last-child {
+    display: none;
+  }
+
+  .menu-title {
+    display: none;
+  }
+
+  .menu-item {
+    justify-content: center;
+
+    padding: 0;
+  }
+
+  .menu-item span {
+    margin: 0;
+  }
+
+  .menu-item {
+    font-size: 0;
+  }
+
+  .sidebar-user {
+    justify-content: center;
+  }
+
+  .sidebar-user > div:last-child {
+    display: none;
+  }
+
+  .logout-button {
+    font-size: 0;
+  }
+
+  .logout-button::before {
+    content: "⇥";
+
+    font-size: 18px;
+  }
+
+  .dashboard-content {
+    width: calc(100% - 70px);
+
+    margin-left: 70px;
+  }
+
+  .mainbar {
+    padding: 0 20px;
+  }
+
+  .mainbar-right {
+    display: none;
+  }
+
+  .dashboard-main {
+    padding: 20px;
+  }
+
+  .page-title h1 {
+    font-size: 23px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .dashboard-main {
+    padding: 15px;
+  }
+
+  .page-title h1 {
+    font-size: 20px;
+  }
+
+  .stat-card {
+    min-height: 125px;
+
+    padding: 18px;
+  }
+
+  .stat-card h2 {
+    font-size: 23px;
+  }
+
+  .activity-header {
+    padding: 18px;
+  }
+
+  .activity-item {
+    padding: 14px 18px;
+  }
+
+  .status {
+    font-size: 9px;
+
+    padding: 4px 7px;
+  }
+
+}

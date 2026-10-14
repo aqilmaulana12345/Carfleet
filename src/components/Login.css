@@ -1,0 +1,68 @@
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.form-group input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 15px;
+  color: #111827;
+
+  outline: none;
+  box-shadow: none;
+  transition: none;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-form button {
+  width: 100%;
+  height: 52px;
+  margin-top: 8px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: 0.1px;
+  cursor: pointer;
+
+  box-shadow: none;
+  transition: none;
+}
+
+/* =====================================================
+   DISABLED BUTTON
+===================================================== */
+
+.login-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+.login-form h1 {
+  color: #111827;
+}
+
+
+
