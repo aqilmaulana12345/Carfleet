@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Armada.css";
 import {
@@ -10,6 +10,50 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+
+
+const CountUp = ({ end, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 1500;
+    let startTime = null;
+    let animationFrame;
+
+    const animate = (timestamp) => {
+      if (startTime === null) {
+        startTime = timestamp;
+      }
+
+      const progress = Math.min(
+        (timestamp - startTime) / duration,
+        1
+      );
+
+      // Animasi melambat secara halus saat mendekati angka akhir
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      setCount(Math.floor(easedProgress * end));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end]);
+
+  return (
+    <>
+      {count}
+      {suffix}
+    </>
+  );
+};
 const initialArmada = [
   {
     id: "CF-001",
@@ -288,30 +332,38 @@ const Armada = () => {
 
           {/* STATISTICS */}
           <div className="stats-grid">
-            <div className="stat-card">
-              <span className="stat-label">Total Armada</span>
-              <h2>{armada.length} Unit</h2>
-              <span className="stat-info">Kendaraan terdaftar</span>
-            </div>
+  <div className="stat-card">
+    <span className="stat-label">Total Armada</span>
+    <h2>
+      <CountUp end={armada.length} suffix=" Unit" />
+    </h2>
+    <span className="stat-info">Kendaraan terdaftar</span>
+  </div>
 
-            <div className="stat-card">
-              <span className="stat-label">Armada Tersedia</span>
-              <h2>{totalTersedia} Unit</h2>
-              <span className="stat-info">Siap disewakan</span>
-            </div>
+  <div className="stat-card">
+    <span className="stat-label">Armada Tersedia</span>
+    <h2>
+      <CountUp end={totalTersedia} suffix=" Unit" />
+    </h2>
+    <span className="stat-info">Siap disewakan</span>
+  </div>
 
-            <div className="stat-card">
-              <span className="stat-label">Sedang Disewa</span>
-              <h2>{totalDisewa} Unit</h2>
-              <span className="stat-info">Sedang digunakan</span>
-            </div>
+  <div className="stat-card">
+    <span className="stat-label">Sedang Disewa</span>
+    <h2>
+      <CountUp end={totalDisewa} suffix=" Unit" />
+    </h2>
+    <span className="stat-info">Sedang digunakan</span>
+  </div>
 
-            <div className="stat-card">
-              <span className="stat-label">Maintenance</span>
-              <h2>{totalMaintenance} Unit</h2>
-              <span className="stat-info">Dalam perawatan</span>
-            </div>
-          </div>
+  <div className="stat-card">
+    <span className="stat-label">Maintenance</span>
+    <h2>
+      <CountUp end={totalMaintenance} suffix=" Unit" />
+    </h2>
+    <span className="stat-info">Dalam perawatan</span>
+  </div>
+</div>
 
           {/* ARMADA LIST */}
           <section className="activity-card">

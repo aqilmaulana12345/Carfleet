@@ -16,7 +16,7 @@ const LoginRight = () => {
 
         <form>
           <div className="form-group">
-          <label style={{ color: "#111827" }}>Email</label>
+          <label style={{ color: "#111827"}}>Email</label>
             <input
               type="email"
               placeholder="Masukkan email"

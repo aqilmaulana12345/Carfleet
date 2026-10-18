@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Perbendaharaan.css";
 import {
@@ -9,6 +9,50 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+
+
+const CountUp = ({ end, decimals = 0, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 1500;
+    let startTime = null;
+    let animationFrame;
+
+    const animate = (timestamp) => {
+      if (startTime === null) {
+        startTime = timestamp;
+      }
+
+      const progress = Math.min(
+        (timestamp - startTime) / duration,
+        1
+      );
+
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      setCount(easedProgress * end);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end]);
+
+  return (
+    <>
+      {count.toFixed(decimals)}
+      {suffix}
+    </>
+  );
+};
+
 
 const Dashboard = () => {
   const [openLogout, setOpenLogout] = useState(false);
@@ -296,8 +340,8 @@ const Dashboard = () => {
     </span>
 
     <h2>
-      145.80 ETH
-    </h2>
+  <CountUp end={145.8} decimals={2} suffix=" ETH" />
+</h2>
 
     <span className="stat-info">
       ≈ Rp 6.8 Miliar
@@ -318,8 +362,8 @@ const Dashboard = () => {
     </span>
 
     <h2>
-      32.45 ETH
-    </h2>
+  <CountUp end={32.45} decimals={2} suffix=" ETH" />
+</h2>
 
     <span className="stat-info">
       Dari pembayaran rental
@@ -340,8 +384,8 @@ const Dashboard = () => {
     </span>
 
     <h2>
-      18.72 ETH
-    </h2>
+  <CountUp end={18.72} decimals={2} suffix=" ETH" />
+</h2>
 
     <span className="stat-info">
       Operasional & maintenance
@@ -362,9 +406,8 @@ const Dashboard = () => {
     </span>
 
     <h2>
-      3
-    </h2>
-
+  <CountUp end={3} />
+</h2>
     <span className="stat-info">
       Menunggu konfirmasi blockchain
     </span>
